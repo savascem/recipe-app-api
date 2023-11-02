@@ -1,0 +1,8 @@
+[flake8]
+exclude =
+    migrations,
+    __pycache__,
+    manage.py,
+    settings.py
+
+; docker-compose run --rm app sh -c "flake8" --->terminale yaz
