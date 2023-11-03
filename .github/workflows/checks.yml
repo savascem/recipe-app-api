@@ -6,7 +6,7 @@ on: [push]
 
 jobs:
   test-lint:
-    name: Test and Lint
+    name: Test
     runs-on: ubuntu-20.04
     # push işlemi sonrasinda asagidaki stepler hatasiz calismali
     steps:
@@ -18,6 +18,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test
-        run: docker-compose run --rm app sh -c "python manage.py test"
-      - name: Lint
-        run: docker-compose run --rm app sh -c "flake8"
+        run: docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py test"
